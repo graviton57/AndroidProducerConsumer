@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Producer Consumer</string>
+    <string name="action_settings">Settings</string>
+    <string name="consumer_1">Consumer 1</string>
+    <string name="consumer_2">Consumer 2</string>
+    <string name="consumer_3">Consumer 3</string>
+</resources>
