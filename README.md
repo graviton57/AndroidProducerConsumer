@@ -4,6 +4,8 @@
   <img src="media/logo.png" >
 </p>
 
+[![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+
 This simple android app is an implementation of a box and a queue using threads. See [Producer–consumer problem](https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem) .
  
 ## Typical threads work:
