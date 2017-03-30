@@ -15,11 +15,11 @@ public class Producer extends Thread {
    private final static int BUCKET_SIZE = 30;//50;
 
    private final Bucket bucket;
-   private final int imageId;
+   private final int id;
 
     public Producer(Bucket b, int resId) {
         bucket = b;
-        imageId = resId;
+        id = resId;
     }
 
     @Override
@@ -29,9 +29,8 @@ public class Producer extends Thread {
         while (fruitCount < BUCKET_SIZE) {
             synchronized (bucket) {
                 message = "Produced:Lollipop " + fruitCount;
-                System.out.println(message);
                 bucket.addLollipop("Lollipop " + fruitCount++);
-                EventBus.getDefault().post(new ProducerConsumerEvent(EventType.PRODUCE, imageId, message));
+                EventBus.getDefault().post(new ProducerConsumerEvent(EventType.PRODUCE, id, message));
                 bucket.notifyAll();
 
             }
@@ -46,9 +45,7 @@ public class Producer extends Thread {
             bucket.notifyAll();
         }
         message = "Producer finished.";
-        EventBus.getDefault().post(new ProducerConsumerEvent(EventType.FINISH, imageId, message));
-        System.out.println(message );
-
+        EventBus.getDefault().post(new ProducerConsumerEvent(EventType.FINISH, id, message));
     }
 
 }

@@ -14,11 +14,11 @@ public class Consumer extends Thread {
     private final Bucket bucket;
     private String consumerName;
     private int lollipopCount;
-    private int imageId;
+    private int id;
 
     public Consumer(Bucket b, String consName, int resId) {
         bucket = b;
-        imageId = resId;
+        id = resId;
         consumerName =consName;
     }
 
@@ -32,24 +32,21 @@ public class Consumer extends Thread {
                     try {
                         bucket.wait();
                         message = consumerName + "  waiting...";
-                        EventBus.getDefault().post(new ProducerConsumerEvent(EventType.WAIT, imageId, message ));
-                        System.out.println(message);
+                        EventBus.getDefault().post(new ProducerConsumerEvent(EventType.WAIT, id, message ));
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 } else {
                     lollipopCount++;
                     message = "Consumed lollipop:" + lollipop +" by "+consumerName;
-                    EventBus.getDefault().post(new ProducerConsumerEvent(EventType.CONSUME, imageId, message));
-                    System.out.println(message);
+                    EventBus.getDefault().post(new ProducerConsumerEvent(EventType.CONSUME, id, message));
                 }
             }
         }
         synchronized (bucket) {
             bucket.notifyAll();
             message = consumerName +" finished. Lollipops:"+ lollipopCount;
-            EventBus.getDefault().post(new ProducerConsumerEvent(EventType.FINISH, imageId, message));
-            System.out.println(message );
+            EventBus.getDefault().post(new ProducerConsumerEvent(EventType.FINISH, id, message));
         }
     }
 }

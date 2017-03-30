@@ -27,17 +27,14 @@ import org.greenrobot.eventbus.ThreadMode;
 public class MainActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
+
     private ProducerConsumerAdapter adapter;
     private FloatingActionButton startButton;
-    private ImageView consumer1Image;
+    private ImageView consumer1Image ,consumer2Image, consumer3Image;
     private ImageView producerImage;
-    private ImageView consumer2Image;
-    private ImageView consumer3Image;
-    private int xBucket;
-    private int yBucket;
     private RecyclerView recyclerView;
-    private int xConsumer1, xConsumer2, xConsumer3;
-    private int yConsumer1, yConsumer2, yConsumer3;
+    private int xBucket, xConsumer1, xConsumer2, xConsumer3;
+    private int yBucket, yConsumer1, yConsumer2, yConsumer3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -210,7 +207,6 @@ public class MainActivity extends AppCompatActivity {
             startButton.setVisibility(visible ? View.VISIBLE : View.GONE);
         }
     }
-
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
