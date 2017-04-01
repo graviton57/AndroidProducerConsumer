@@ -160,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d(LOG_TAG, event.getMessage());
         switch (event.getType()){
             case WAIT:
-
                 break;
             case FINISH:
                 animateProducer(R.drawable.empty_basket);
@@ -173,14 +172,14 @@ public class MainActivity extends AppCompatActivity {
                 animateConsumer(event.getId());
                 break;
         }
-       if (adapter!=null){
+       if (adapter != null){
            adapter.addItem(event.getMessage());
            recyclerView.scrollToPosition(adapter.getItemCount()-1);
        }
     }
 
     private void animateProducer(int resId) {
-        if (producerImage !=null){
+        if (producerImage != null) {
             producerImage.setImageResource(resId);
         }
     }

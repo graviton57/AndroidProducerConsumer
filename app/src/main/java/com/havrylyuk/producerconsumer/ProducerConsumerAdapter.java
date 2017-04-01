@@ -30,11 +30,6 @@ public class ProducerConsumerAdapter extends RecyclerView.Adapter<ProducerConsum
         this.list = new ArrayList<>();
     }
 
-    public void setList(List<String> list) {
-        this.list = list;
-        notifyDataSetChanged();
-    }
-
     public void addItem(String item) {
         list.add(item);
         notifyDataSetChanged();

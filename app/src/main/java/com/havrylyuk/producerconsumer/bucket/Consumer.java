@@ -19,7 +19,7 @@ public class Consumer extends Thread {
     public Consumer(Bucket b, String consName, int resId) {
         bucket = b;
         id = resId;
-        consumerName =consName;
+        consumerName = consName;
     }
 
     @Override
